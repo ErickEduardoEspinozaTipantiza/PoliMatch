@@ -11,4 +11,12 @@
 ## Objetivo
 Crear un espacio donde los estudiantes puedan interactuar y acceder a herramientas que fortalezcan tanto sus relaciones sociales como su desarrollo académico.
 
+
+## Miembros del proyecto
+- [**Erick Caicedo**](https://github.com/ErickCaiced2)  
+- [**Erick Espinoza**](https://github.com/ErickEduardoEspinozaTipantiza)  
+- [**Isabella Hernández**](https://github.com/lalabell-a)  
+
 ---
+
+
