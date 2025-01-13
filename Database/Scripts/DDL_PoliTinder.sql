@@ -34,26 +34,14 @@ CREATE TABLE Persona(
         ,IdPersonaSexo          INTEGER REFERENCES PersonaSexo(IdPersonaSexo)
         ,Nombre                 TEXT  NOT NULL 
         ,Apellido               TEXT  NOT NULL
-        ,FechaNacimiento        DATETIME NOT NULL
-        ,Correo                 VARCHAR(70) UNIQUE
+        ,FechaNacimiento        DATETIME 
+        ,Correo                 VARCHAR(70) UNIQUE NOT NULL
+        ,Contrasenia            VARCHAR(70) UNIQUE NOT NULL
         ,Observacion            TEXT
         ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
         ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
         ,FechaModifica          DATE
 );
-/* Posible creacion de chat*/
-/*CREATE TABLE Regalo(
-        IdRegalo                INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdRegaloTipo           INTEGER NOT NULL REFERENCES RegaloTipo(IdRegaloTipo)
-        ,Nombre                 TEXT  NOT NULL UNIQUE
-        ,Observacion            TEXT
-        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
-        ,Precio                 REAL NOT NULL CHECK (Precio >= 0)
-        ,Stock                  INT NOT NULL
-        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica          DATE
-
-);*/
 
 CREATE TABLE RelacionTipo(
         IdRelacionTipo          INTEGER PRIMARY KEY AUTOINCREMENT
