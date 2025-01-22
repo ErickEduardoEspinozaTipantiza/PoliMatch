@@ -7,14 +7,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
+public class PersonaDAO extends SQLServerDataHelper implements IDAO<PersonaDTO> {
 
     @Override
     public boolean create(PersonaDTO entity) throws Exception {
-        String query = "INSERT INTO Persona (Nombre) VALUES (?)";
+        String query = "INSERT INTO Persona (Nombre, RutaImagen) VALUES (?, ?)";
         try (Connection conn = openConnection();
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, entity.getNombre());
+            pstmt.setString(2, entity.getRutaImagen());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -25,7 +26,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
     @Override
     public List<PersonaDTO> readAll() throws Exception {
         List<PersonaDTO> lst = new ArrayList<>();
-        String query = "SELECT IdPersona, IdPersonaRol, IdPersonaSexo, Nombre, Apellido, FechaNacimiento, Correo, Observacion, Estado, FechaCrea, FechaModifica FROM Persona";
+        String query = "SELECT IdPersona, IdPersonaRol, IdPersonaSexo, Nombre, Apellido, FechaNacimiento, Correo, Observacion, Estado, FechaCrea, FechaModifica, RutaImagen FROM Persona";
 
         try (Connection conn = openConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
@@ -43,7 +44,8 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
                         rs.getString("Observacion"),
                         rs.getString("Estado"),
                         rs.getString("FechaCrea"),
-                        rs.getString("FechaModifica")
+                        rs.getString("FechaModifica"),
+                        rs.getString("RutaImagen")
                 );
                 lst.add(pdto);
             }
@@ -56,7 +58,7 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
     @Override
     public PersonaDTO readBy(Integer id) throws Exception {
         PersonaDTO pd = null;
-        String query = "SELECT IdPersona, IdPersonaRol, IdPersonaSexo, Nombre, Apellido, FechaNacimiento, Correo, Observacion, Estado, FechaCrea, FechaModifica FROM Persona WHERE Estado = 'A' AND IdPersona = ?";
+        String query = "SELECT IdPersona, IdPersonaRol, IdPersonaSexo, Nombre, Apellido, FechaNacimiento, Correo, Observacion, Estado, FechaCrea, FechaModifica, RutaImagen FROM Persona WHERE Estado = 'A' AND IdPersona = ?";
 
         try (Connection conn = openConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -74,7 +76,8 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
                             rs.getString("Observacion"),
                             rs.getString("Estado"),
                             rs.getString("FechaCrea"),
-                            rs.getString("FechaModifica")
+                            rs.getString("FechaModifica"),
+                            rs.getString("RutaImagen")
                     );
                 }
             }
@@ -88,13 +91,14 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
     public boolean update(PersonaDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query = "UPDATE Persona SET Nombre = ?, FechaModifica = ? WHERE IdPersona = ?";
+        String query = "UPDATE Persona SET Nombre = ?, FechaModifica = ?, RutaImagen = ? WHERE IdPersona = ?";
 
         try (Connection conn = openConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, entity.getNombre());
             ps.setString(2, dtf.format(now));
-            ps.setInt(3, entity.getIdPersona());
+            ps.setString(3, entity.getRutaImagen());
+            ps.setInt(4, entity.getIdPersona());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {

@@ -29,18 +29,19 @@ CREATE TABLE PersonaSexo(
 );
 
 CREATE TABLE Persona(
-        IdPersona               INTEGER PRIMARY KEY AUTOINCREMENT
-        ,IdPersonaRol           INTEGER NOT NULL REFERENCES PersonaRol(IdPersonaRol)
-        ,IdPersonaSexo          INTEGER REFERENCES PersonaSexo(IdPersonaSexo)
-        ,Nombre                 TEXT  NOT NULL 
-        ,Apellido               TEXT  NOT NULL
-        ,FechaNacimiento        DATETIME 
-        ,Correo                 VARCHAR(70) UNIQUE NOT NULL
-        ,Contrasenia            VARCHAR(70) UNIQUE NOT NULL
-        ,Observacion            TEXT
-        ,Estado                 CHAR(1) NOT NULL DEFAULT ('A')
-        ,FechaCrea              DATETIME NOT NULL  DEFAULT (datetime('now'))
-        ,FechaModifica          DATE
+    IdPersona               INTEGER PRIMARY KEY AUTOINCREMENT,
+    IdPersonaRol           INTEGER NOT NULL REFERENCES PersonaRol(IdPersonaRol),
+    IdPersonaSexo          INTEGER REFERENCES PersonaSexo(IdPersonaSexo),
+    Nombre                 TEXT NOT NULL,
+    Apellido               TEXT NOT NULL,
+    FechaNacimiento        DATETIME,
+    Correo                 VARCHAR(70) UNIQUE NOT NULL,
+    Contrasenia            VARCHAR(70) UNIQUE NOT NULL,
+    Observacion            TEXT,
+    Estado                 CHAR(1) NOT NULL DEFAULT ('A'),
+    FechaCrea              DATETIME NOT NULL DEFAULT (datetime('now')),
+    FechaModifica          DATE,
+    RutaImagen             TEXT  DEFAULT ('')
 );
 
 CREATE TABLE RelacionTipo(

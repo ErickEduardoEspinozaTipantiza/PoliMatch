@@ -1,17 +1,18 @@
 package DataAccessComponent.DTO;
 
 public class PersonaDTO {
-    private int     idPersona        ;      
-    private int     idPersonaRol     ;
-    private int     idPersonaSexo    ;
-    private String  nombre           ;
-    private String  apellido         ;
-    private String  fechaNacimiento  ;
-    private String  correo           ;
-    private String  observacion      ;
-    private String  estado           ;
-    private String  fechaCrea        ;
-    private String  fechaModifica    ; 
+    private int idPersona;
+    private int idPersonaRol;
+    private int idPersonaSexo;
+    private String nombre;
+    private String apellido;
+    private String fechaNacimiento;
+    private String correo;
+    private String observacion;
+    private String estado;
+    private String fechaCrea;
+    private String fechaModifica;
+    private String rutaImagen;
 
     public PersonaDTO() {
     }
@@ -21,19 +22,7 @@ public class PersonaDTO {
         this.apellido = apellido;
     }
 
-    public PersonaDTO(
-            int idPersona,
-            int idPersonaRol,
-            int idPersonaSexo,
-            String nombre,
-            String apellido,
-            String fechaNacimiento,
-            String correo,
-            String observacion,
-            String estado,
-            String fechaCrea,
-            String fechaModifica
-    ) {
+    public PersonaDTO(int idPersona, int idPersonaRol, int idPersonaSexo, String nombre, String apellido, String fechaNacimiento, String correo, String observacion, String estado, String fechaCrea, String fechaModifica, String rutaImagen) {
         this.idPersona = idPersona;
         this.idPersonaRol = idPersonaRol;
         this.idPersonaSexo = idPersonaSexo;
@@ -45,6 +34,7 @@ public class PersonaDTO {
         this.estado = estado;
         this.fechaCrea = fechaCrea;
         this.fechaModifica = fechaModifica;
+        this.rutaImagen = rutaImagen;
     }
 
     public int getIdPersona() {
@@ -135,6 +125,14 @@ public class PersonaDTO {
         this.fechaModifica = fechaModifica;
     }
 
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+
     @Override
     public String toString() {
         return "\n" + getClass().getName() +
@@ -148,6 +146,7 @@ public class PersonaDTO {
                 "\nObservacion       : " + getObservacion() +
                 "\nEstado            : " + getEstado() +
                 "\nFechaCrea         : " + getFechaCrea() +
-                "\nFechaModifica     : " + getFechaModifica();
+                "\nFechaModifica     : " + getFechaModifica() +
+                "\nRutaImagen        : " + getRutaImagen();
     }
 }
