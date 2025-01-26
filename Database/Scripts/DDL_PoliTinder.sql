@@ -36,7 +36,7 @@ CREATE TABLE Persona(
     Apellido               TEXT NOT NULL,
     FechaNacimiento        DATETIME,
     Correo                 VARCHAR(70) UNIQUE NOT NULL,
-    Contrasenia            VARCHAR(70) UNIQUE NOT NULL,
+    Contrasenia            VARCHAR(70) NOT NULL,
     Observacion            TEXT,
     Estado                 CHAR(1) NOT NULL DEFAULT ('A'),
     FechaCrea              DATETIME NOT NULL DEFAULT (datetime('now')),
