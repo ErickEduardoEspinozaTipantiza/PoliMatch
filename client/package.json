@@ -20,6 +20,7 @@
     "react-router-dom": "^7.1.1",
     "react-tinder-card": "^1.6.4",
     "socket.io-client": "^4.8.1",
+    "tinderclone": "file:..",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
