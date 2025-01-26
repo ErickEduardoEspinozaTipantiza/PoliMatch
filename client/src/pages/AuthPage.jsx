@@ -6,8 +6,8 @@ import SignUpForm from "../components/SignUpForm";
 import flameIcon from "../assets/Logo.png";
 import loginBackground from "../assets/tinder1.png";
 import signupBackground from "../assets/blanco.png";
-import overlayImageRight from "../assets/Overlay-right.png";
-import overlayImageLeft from "../assets/Overlay-left.png"; 
+import overlayImageRight from "../assets/overlayr.png";
+import overlayImageLeft from "../assets/overlayl.png"; 
 
 const AuthPage = () => {
 	const [isLogin, setIsLogin] = useState(true);
