@@ -13,7 +13,6 @@ public abstract class SQLServerDataHelper {
 
     protected static synchronized Connection openConnection() throws Exception {
         try {
-            // Registrar el driver (si es necesario)
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
             if (connection == null || connection.isClosed()) {
