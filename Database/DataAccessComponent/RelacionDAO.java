@@ -11,7 +11,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.RelacionDTO;
 
-public class RelacionDAO extends SQLiteDataHelper implements IDAO<RelacionDTO> {
+public class RelacionDAO extends SQLServerDataHelper implements IDAO<RelacionDTO> {
 
     @Override
     public boolean create(RelacionDTO entity) throws Exception {

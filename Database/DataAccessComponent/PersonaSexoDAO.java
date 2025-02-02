@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.PersonaSexoDTO;
 
-public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexoDTO>{
+public class PersonaSexoDAO extends SQLServerDataHelper implements IDAO<PersonaSexoDTO>{
 
     @Override
     public boolean create(PersonaSexoDTO entity) throws Exception {

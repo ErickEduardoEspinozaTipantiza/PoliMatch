@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.CitaDTO;
 
-public class CitaDAO extends SQLiteDataHelper implements IDAO<CitaDTO>{
+public class CitaDAO extends SQLServerDataHelper implements IDAO<CitaDTO>{
 
     @Override
     public boolean create(CitaDTO entity) throws Exception {

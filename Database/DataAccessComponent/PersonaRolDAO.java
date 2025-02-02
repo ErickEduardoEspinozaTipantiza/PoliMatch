@@ -11,7 +11,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.PersonaRolDTO;
 
-public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDTO>{
+public class PersonaRolDAO extends SQLServerDataHelper implements IDAO<PersonaRolDTO>{
     
     @Override
     public boolean create(PersonaRolDTO entity) throws Exception {

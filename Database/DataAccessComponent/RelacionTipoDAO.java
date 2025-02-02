@@ -12,7 +12,7 @@ import java.util.List;
 
 import DataAccessComponent.DTO.RelacionTipoDTO;
 
-public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTipoDTO> {
+public class RelacionTipoDAO extends SQLServerDataHelper implements IDAO<RelacionTipoDTO> {
 
     @Override
     public boolean create(RelacionTipoDTO entity) throws Exception {
